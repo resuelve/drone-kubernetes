@@ -1,0 +1,19 @@
+---
+clone:
+  git:
+    image: plugins/git:next
+
+pipeline:
+
+  publish:
+    image: plugins/docker
+    repo: resuelve/drone-kubernetes
+    secrets: [docker_username, docker_password]
+    tags:
+      - build-${DRONE_BUILD_NUMBER}-${DRONE_REPO_BRANCH}
+    when:
+      status: success
+      event: [push, deployment]
+
+branches: master
+
