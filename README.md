@@ -1,4 +1,8 @@
-# Kubernetes plugin for drone.io [![Docker Repository on Quay](https://quay.io/repository/honestbee/drone-kubernetes/status "Docker Repository on Quay")](https://quay.io/repository/honestbee/drone-kubernetes)
+# Kubernetes plugin for drone.io [![Docker Repository on DockerHub](https://hub.docker.com/r/resuelve/drone-kubernetes)
+
+[![Build Status](http://ci.test.resuelve.io/api/badges/resuelve/drone-kubernetes/status.svg)](http://ci.test.resuelve.io/resuelve/drone-kubernetes)
+
+Fork from [https://github.com/honestbee/drone-kubernetes](https://github.com/honestbee/drone-kubernetes).
 
 This plugin allows to update a Kubernetes deployment.
 
@@ -9,7 +13,7 @@ This pipeline will update the `my-deployment` deployment with the image tagged `
 ```yaml
     pipeline:
         deploy:
-            image: quay.io/honestbee/drone-kubernetes
+            image: resuelve/drone-kubernetes
             deployment: my-deployment
             repo: myorg/myrepo
             container: my-container
@@ -23,7 +27,7 @@ Deploying containers across several deployments, eg in a scheduler-worker setup.
 ```yaml
     pipeline:
         deploy:
-            image: quay.io/honestbee/drone-kubernetes
+            image: resuelve/drone-kubernetes
             deployment: [server-deploy, worker-deploy]
             repo: myorg/myrepo
             container: my-container
@@ -37,7 +41,7 @@ Deploying multiple containers within the same deployment.
 ```yaml
     pipeline:
         deploy:
-            image: quay.io/honestbee/drone-kubernetes
+            image: resuelve/drone-kubernetes
             deployment: my-deployment
             repo: myorg/myrepo
             container: [container1, container2]
@@ -53,7 +57,7 @@ This more complex example demonstrates how to deploy to several environments bas
 ```yaml
     pipeline:
         deploy-staging:
-            image: quay.io/honestbee/drone-kubernetes
+            image: resuelve/drone-kubernetes
             kubernetes_server: ${KUBERNETES_SERVER_STAGING}
             kubernetes_cert: ${KUBERNETES_CERT_STAGING}
             kubernetes_token: ${KUBERNETES_TOKEN_STAGING}
@@ -68,7 +72,7 @@ This more complex example demonstrates how to deploy to several environments bas
                 branch: [ staging ]
 
         deploy-prod:
-            image: quay.io/honestbee/drone-kubernetes
+            image: resuelve/drone-kubernetes
             kubernetes_server: ${KUBERNETES_SERVER_PROD}
             kubernetes_token: ${KUBERNETES_TOKEN_PROD}
             # notice: no tls verification will be done, warning will is printed
@@ -86,10 +90,10 @@ This more complex example demonstrates how to deploy to several environments bas
 ## Required secrets
 
 ```bash
-    drone secret add --image=honestbee/drone-kubernetes \
+    drone secret add --image=resuelve/drone-kubernetes \
         your-user/your-repo KUBERNETES_SERVER https://mykubernetesapiserver
 
-    drone secret add --image=honestbee/drone-kubernetes \
+    drone secret add --image=resuelve/drone-kubernetes \
         your-user/your-repo KUBERNETES_CERT <base64 encoded CA.crt>
 
     drone secret add --image=honestbee/drone-kubernetes \
