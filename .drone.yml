@@ -11,6 +11,7 @@ pipeline:
     secrets: [docker_username, docker_password]
     tags:
       - build-${DRONE_BUILD_NUMBER}-${DRONE_REPO_BRANCH}
+      - latest
     when:
       status: success
       event: [push, deployment]
