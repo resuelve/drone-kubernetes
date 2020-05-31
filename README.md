@@ -1,6 +1,6 @@
 # Kubernetes plugin for drone.io [![Docker Repository on DockerHub](https://hub.docker.com/r/resuelve/drone-kubernetes)
 
-[![Build Status](http://ci.test.resuelve.io/api/badges/resuelve/drone-kubernetes/status.svg)](http://ci.test.resuelve.io/resuelve/drone-kubernetes)
+[![Build Status](https://c.resuelve.io/api/badges/resuelve/drone-kubernetes/status.svg)](https://c.resuelve.io/resuelve/drone-kubernetes)
 
 Fork from [https://github.com/honestbee/drone-kubernetes](https://github.com/honestbee/drone-kubernetes).
 
